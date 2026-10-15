@@ -27,10 +27,4 @@ class College:
         return  list(self._students_by_score)
 
     def get_students_by_scores_between(self, min_score, max_score):
-        result = []
-
-        for student in self._students_by_score:
-            if min_score <= student.score <= max_score:
-                result.append(student)
-
-        return result
+        return list(self._students_by_score.irange_key(min_score, max_score))
